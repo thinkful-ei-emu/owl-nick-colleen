@@ -1,0 +1,15 @@
+.stage-display {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    background-color: rgb(73, 73, 73);
+    margin: 10px;
+    width: 70%;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.stage-participant {
+    flex-direction: column;
+}

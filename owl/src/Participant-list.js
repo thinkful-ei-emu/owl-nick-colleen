@@ -1,13 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Participant from './Participant';
+import './styles/Participant-list.css';
 
 
 
 
 function ParticipantList(props){
   return (
-    <ul className="participantList">
+    
       <Participant 
       id = {props.id}
       name = {props.name}
@@ -15,7 +16,7 @@ function ParticipantList(props){
       inSession = {props.inSession}
       onStage = {props.onStage}
       />
-    </ul>
+    
   )
 }
 
