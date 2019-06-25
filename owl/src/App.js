@@ -4,10 +4,11 @@ import ParticipantList from './Participant-list';
 
 function App(props) {
   console.log(props.store.participants);
+  const sortedStore = props.store.participants.sort((a,b) => (a.inSession > b.inSession) ? -1 : 1);
   return (
     <div className="App">
       <header className="App-header">
-        {props.store.participants.map((participant) => 
+        {sortedStore.map((participant) => 
           <ParticipantList 
           name= {participant.name}
           id = {participant.id}
