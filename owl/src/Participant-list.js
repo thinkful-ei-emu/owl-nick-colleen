@@ -7,15 +7,22 @@ import './styles/Participant-list.css';
 
 
 function ParticipantList(props){
+  const sortedStore = props.participants.sort((a,b) => (a.inSession > b.inSession) ? -1 : 1);
+  
+  
   return (
     
-      <Participant 
-      id = {props.id}
-      name = {props.name}
-      avatar = {props.avatar}
-      inSession = {props.inSession}
-      onStage = {props.onStage}
-      />
+    <ul className="participantList">
+        {sortedStore.map((participant) => 
+          <Participant 
+          name= {participant.name}
+          id = {participant.id}
+          avatar = {participant.avatar}
+          inSession = {participant.inSession}
+          onStage = {participant.onStage}
+          />
+        )}
+        </ul>
     
   )
 }

@@ -2,31 +2,26 @@ import React from 'react';
 import './App.css';
 import ParticipantList from './Participant-list';
 import Stage from './Stage';
+import ChatLog from './Chat-log';
 
 function App(props) {
   console.log(props.store.participants);
-  const sortedStore = props.store.participants.sort((a,b) => (a.inSession > b.inSession) ? -1 : 1);
   return (
     <div className="App">
       <header className="App-header"></header>
-      <ul className="participantList">
-        {sortedStore.map((participant) => 
-          <ParticipantList 
-          name= {participant.name}
-          id = {participant.id}
-          avatar = {participant.avatar}
-          inSession = {participant.inSession}
-          onStage = {participant.onStage}
-          />
-        )}
-        </ul>
+        <ParticipantList 
+        participants={props.store.participants}
+        />
         <div className="stage-display">
-        {props.store.participants.map((participant) =>
         <Stage 
-         name = {participant.name}
-         avatar = {participant.avatar}
-         onStage = {participant.onStage}
-         />)}
+        participants={props.store.participants}/>
+         </div>
+         <div className="chat-log">
+           <ChatLog 
+           chatEvents = {props.store.chatEvents}
+           participants = {props.store.participants}
+           />
+    
          </div>
         
     </div>
@@ -34,3 +29,4 @@ function App(props) {
 }
 
 export default App;
+

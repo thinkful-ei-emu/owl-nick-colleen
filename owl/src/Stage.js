@@ -6,7 +6,12 @@ import './styles/Stage.css';
 function Stage(props){
     return ( 
         <div className="stage-participant">
-            <StageItem name={props.name} avatar={props.avatar} onStage={props.onStage}/>
+            {props.participants.map((participant) =>
+        <StageItem
+         name = {participant.name}
+         avatar = {participant.avatar}
+         onStage = {participant.onStage}
+         />)}
         </div>
     )
 }
